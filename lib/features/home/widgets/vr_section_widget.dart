@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../core/utils/resources/app_style.dart';
 import '../../../core/utils/resources/strings_manager.dart';
 import '../../../core/utils/resources/values_manager.dart';
+import '../../../core/utils/widgets/video_player_widget.dart';
 
 class VRSectionWidget extends StatelessWidget {
   const VRSectionWidget({
@@ -11,7 +12,7 @@ class VRSectionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Transform.translate(
-      offset: const Offset(0,-50),
+      offset: const Offset(0, -50),
       child: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: AppPadding.p20,
@@ -26,12 +27,9 @@ class VRSectionWidget extends StatelessWidget {
             const SizedBox(
               height: AppSize.s20,
             ),
-            Container(
-              height: MediaQuery.of(context).size.height * 0.3,
-              decoration:  BoxDecoration(
-                  color: Colors.cyan,
-                  borderRadius: BorderRadius.circular(AppSize.s10)
-              ),
+            const VideoPlayerWidget(
+              videoUrl:
+                  'https://github.com/AyaIbrahim3027/ANMproject/raw/ee1c709b94000f51a47e14c6097acf8ded67711c/VR%20sample.mp4',
             ),
           ],
         ),
