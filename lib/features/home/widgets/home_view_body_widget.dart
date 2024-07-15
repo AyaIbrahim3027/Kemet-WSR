@@ -5,6 +5,7 @@ import 'package:kemetwsr/core/utils/resources/color_manager.dart';
 import 'package:kemetwsr/core/utils/resources/strings_manager.dart';
 import 'package:kemetwsr/features/home/widgets/custom_text_form_field_widget.dart';
 import 'package:kemetwsr/features/home/widgets/statue_list_widget.dart';
+import 'package:kemetwsr/features/home/widgets/vr_section_widget.dart';
 import 'package:kemetwsr/features/home/widgets/welcome_text_widget.dart';
 import '../../../core/utils/resources/values_manager.dart';
 
@@ -45,6 +46,9 @@ class HomeViewBodyWidget extends StatelessWidget {
             ),
             child: StatueListWidget(),
           ),
+        ),
+        const SliverToBoxAdapter(
+          child: VRSectionWidget(),
         ),
       ],
     );
