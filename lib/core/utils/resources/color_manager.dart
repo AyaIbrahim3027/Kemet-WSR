@@ -5,4 +5,5 @@ class ColorManager {
 
   static const Color white = Colors.white;
   static const Color black = Colors.black;
+  static const Color beige = Color(0xff8a766f);
 }

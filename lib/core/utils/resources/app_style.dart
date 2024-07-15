@@ -74,11 +74,11 @@ abstract class AppStyles {
     );
   }
 
-  static TextStyle styleBold20() {
+  static TextStyle styleSemiBold20() {
     return const TextStyle(
       color: ColorManager.black,
       fontSize: 20,
-      fontWeight: FontWeight.bold,
+      fontWeight: FontWeight.w600,
     );
   }
 
