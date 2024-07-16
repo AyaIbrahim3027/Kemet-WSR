@@ -4,7 +4,8 @@ import 'package:kemetwsr/core/utils/resources/assets_manager.dart';
 import 'package:kemetwsr/core/utils/resources/color_manager.dart';
 import 'package:kemetwsr/core/utils/resources/strings_manager.dart';
 import 'package:lottie/lottie.dart';
-import '../../../core/utils/functions/navigateToHome.dart';
+
+import '../../../../core/utils/functions/navigateToHome.dart';
 
 class SplashViewBodyWidget extends StatefulWidget {
   const SplashViewBodyWidget({super.key});

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import '../../../core/utils/resources/app_style.dart';
-import '../../../core/utils/resources/strings_manager.dart';
-import '../../../core/utils/resources/values_manager.dart';
+import '../../../../core/utils/resources/app_style.dart';
+import '../../../../core/utils/resources/strings_manager.dart';
+import '../../../../core/utils/resources/values_manager.dart';
 
 class WelcomeTextWidget extends StatelessWidget {
   const WelcomeTextWidget({

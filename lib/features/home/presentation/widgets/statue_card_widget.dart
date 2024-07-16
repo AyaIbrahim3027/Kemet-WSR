@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kemetwsr/core/utils/resources/app_style.dart';
 import 'package:kemetwsr/core/utils/resources/color_manager.dart';
 import 'package:kemetwsr/core/utils/resources/values_manager.dart';
-import '../data/models/statue_model.dart';
+import '../../data/models/statue_model.dart';
 
 class StatueCardWidget extends StatelessWidget {
   const StatueCardWidget({

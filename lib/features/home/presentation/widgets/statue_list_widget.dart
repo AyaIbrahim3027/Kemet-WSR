@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kemetwsr/features/home/widgets/statue_card_widget.dart';
-import '../data/models/statue_model.dart';
-import '../data/statue_service/statue_service.dart';
+import 'package:kemetwsr/features/home/presentation/widgets/statue_card_widget.dart';
+import '../../data/models/statue_model.dart';
+import '../../data/statue_service/statue_service.dart';
 
 class StatueListWidget extends StatefulWidget {
   const StatueListWidget({super.key});

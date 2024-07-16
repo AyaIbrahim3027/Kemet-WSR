@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../../core/utils/resources/app_style.dart';
-import '../../../core/utils/resources/strings_manager.dart';
-import '../../../core/utils/resources/values_manager.dart';
-import '../../../core/utils/widgets/video_player_widget.dart';
+import '../../../../core/utils/resources/app_style.dart';
+import '../../../../core/utils/resources/strings_manager.dart';
+import '../../../../core/utils/resources/values_manager.dart';
+import '../../../../core/utils/widgets/video_player_widget.dart';
 
 class VRSectionWidget extends StatelessWidget {
   const VRSectionWidget({

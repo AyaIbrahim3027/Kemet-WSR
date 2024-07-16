@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
-import '../features/home/views/home_view.dart';
-import '../features/splash/views/splash_view.dart';
+import '../features/home/presentation/views/home_view.dart';
+import '../features/splash/presentation/views/splash_view.dart';
 
 abstract class AppRouter {
   static const kSplashView = '/';
