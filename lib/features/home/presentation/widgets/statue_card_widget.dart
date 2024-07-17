@@ -25,12 +25,12 @@ class StatueCardWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Center(
-            //   child: Image.network(
-            //     statueModel.image,
-            //     height: 100,
-            //   ),
-            // ),
+            Center(
+              child: Image.network(
+                statueModel.image,
+                height: 100,
+              ),
+            ),
             const SizedBox(height: AppSize.s16),
             Text(
               statueModel.name,
@@ -46,7 +46,7 @@ class StatueCardWidget extends StatelessWidget {
                 ),
                 const SizedBox(width: AppSize.s8),
                 Text(
-                  'statueModel.civilizationName',
+                  statueModel.civilizationName,
                   style: AppStyles.styleMedium15(),
                   overflow: TextOverflow.ellipsis,
                 ),
