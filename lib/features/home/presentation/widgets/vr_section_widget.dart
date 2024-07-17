@@ -11,28 +11,26 @@ class VRSectionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Transform.translate(
-      offset: const Offset(0, -50),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: AppPadding.p20,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              StringsManager.soon,
-              style: AppStyles.styleSemiBold20(),
-            ),
-            const SizedBox(
-              height: AppSize.s20,
-            ),
-            const VideoPlayerWidget(
-              videoUrl:
-                  'https://github.com/AyaIbrahim3027/ANMproject/raw/ee1c709b94000f51a47e14c6097acf8ded67711c/VR%20sample.mp4',
-            ),
-          ],
-        ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: AppPadding.p20,
+        vertical: AppPadding.p30,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            StringsManager.soon,
+            style: AppStyles.styleSemiBold20(),
+          ),
+          const SizedBox(
+            height: AppSize.s20,
+          ),
+          const VideoPlayerWidget(
+            videoUrl:
+                'https://github.com/AyaIbrahim3027/ANMproject/raw/ee1c709b94000f51a47e14c6097acf8ded67711c/VR%20sample.mp4',
+          ),
+        ],
       ),
     );
   }
