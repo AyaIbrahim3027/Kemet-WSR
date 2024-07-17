@@ -1,42 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kemetwsr/features/home/presentation/widgets/statue_card_widget.dart';
-import '../../data/models/statue_model.dart';
-import '../../data/statue_service/statue_service.dart';
+import '../../../../core/utils/widgets/progress_indicator_widget.dart';
+import '../manager/statue/statue_cubit.dart';
 
-class StatueListWidget extends StatefulWidget {
+class StatueListWidget extends StatelessWidget {
   const StatueListWidget({super.key});
 
   @override
-  State<StatueListWidget> createState() => _StatueListWidgetState();
-}
-
-class _StatueListWidgetState extends State<StatueListWidget> {
-  late Future<List<StatueModel>> _statuesFuture;
-  final StatueService _statueService = StatueService();
-
-  @override
-  void initState() {
-    super.initState();
-    _statuesFuture = _statueService.fetchStatues();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<StatueModel>>(
-      future: _statuesFuture,
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(child: CircularProgressIndicator());
-        }
-        if (snapshot.hasError) {
-          return Center(child: Text('Error: ${snapshot.error}'));
-        }
-        if (!snapshot.hasData || snapshot.data!.isEmpty) {
-          return const Center(child: Text('No statues found.'));
-        }
-
-        final statues = snapshot.data!;
-
+    return BlocBuilder<StatueCubit, StatueState>(builder: (context, state) {
+      if (state is StatueLoading) {
+        return const ProgressIndicatorWidget();
+      } else if (state is StatueSuccess) {
         return GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
@@ -44,13 +20,19 @@ class _StatueListWidgetState extends State<StatueListWidget> {
             crossAxisSpacing: 5,
           ),
           physics: const NeverScrollableScrollPhysics(),
-          itemCount: statues.length,
+          itemCount: state.statues.length,
           itemBuilder: (BuildContext context, int index) {
-            final statue = statues[index];
+            final statue = state.statues[index];
             return StatueCardWidget(statueModel: statue);
           },
         );
-      },
-    );
+      } else if (state is StatueFailure) {
+        return Center(child: Text('Error: ${state.errorMsg}'));
+      } else {
+        return const Center(child: Text('No data'));
+      }
+    });
+
   }
 }
+
