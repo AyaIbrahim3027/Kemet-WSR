@@ -34,21 +34,14 @@ class HomeViewBodyWidget extends StatelessWidget {
                   hintText: StringsManager.searchHintText,
                   fillColor: ColorManager.beige.withOpacity(AppOpacity.op0_4),
                 ),
+                const SizedBox(
+                  height: AppSize.s20,
+                ),
+                const StatueListWidget(),
+                const VRSectionWidget(),
               ],
             ),
           ),
-        ),
-        const SliverFillRemaining(
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: AppPadding.p20,
-              vertical: AppPadding.p10,
-            ),
-            child: StatueListWidget(),
-          ),
-        ),
-        const SliverToBoxAdapter(
-          child: VRSectionWidget(),
         ),
       ],
     );

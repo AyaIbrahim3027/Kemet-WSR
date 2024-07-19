@@ -82,11 +82,11 @@ abstract class AppStyles {
     );
   }
 
-  static TextStyle styleMedium22() {
+  static TextStyle styleSemiBold23() {
     return const TextStyle(
       color: ColorManager.black,
-      fontSize: 22,
-      fontWeight: FontWeight.w500,
+      fontSize: 23,
+      fontWeight: FontWeight.w600,
     );
   }
 

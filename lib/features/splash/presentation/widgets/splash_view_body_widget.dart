@@ -42,10 +42,10 @@ class _SplashViewBodyWidgetState extends State<SplashViewBodyWidget> {
         Positioned(
           // top: 500,
           top: height * 0.58,
-          left: width * 0.35,
+          left: width * 0.43,
           child: Text(
-            StringsManager.appName,
-            style: AppStyles.styleMedium22(),
+            StringsManager.appName.toUpperCase(),
+            style: AppStyles.styleSemiBold23(),
           ),
         )
       ],

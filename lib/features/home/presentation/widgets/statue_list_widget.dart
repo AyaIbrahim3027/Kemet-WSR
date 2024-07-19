@@ -15,14 +15,15 @@ class StatueListWidget extends StatelessWidget {
         return const ProgressIndicatorWidget();
       } else if (state is StatueSuccess) {
         return GridView.builder(
-          padding: const EdgeInsets.symmetric(vertical: AppPadding.p55),
           clipBehavior: Clip.none,
+          padding: const EdgeInsets.symmetric(vertical: AppPadding.p10),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
-            childAspectRatio: 0.85,
-            mainAxisSpacing: 75,
+            childAspectRatio: 0.55,
+            mainAxisSpacing: 20,
             crossAxisSpacing: 10,
           ),
+          shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           itemCount: state.statues.length,
           itemBuilder: (BuildContext context, int index) {
