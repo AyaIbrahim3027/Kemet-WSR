@@ -31,12 +31,13 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return FittedBox(
-      fit: BoxFit.scaleDown,
-      child: SizedBox(
-        height: MediaQuery.of(context).size.height * 0.3,
-        child: FlickVideoPlayer(flickManager: flickManager),
-      ),
-    );
+    return FlickVideoPlayer(flickManager: flickManager);
+    // return FittedBox(
+    //   fit: BoxFit.scaleDown,
+    //   child: SizedBox(
+    //     height: MediaQuery.of(context).size.height * 0.3,
+    //     child: FlickVideoPlayer(flickManager: flickManager),
+    //   ),
+    // );
   }
 }
