@@ -1,10 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kemetwsr/core/utils/resources/assets_manager.dart';
 import 'package:kemetwsr/core/utils/resources/strings_manager.dart';
-import 'package:kemetwsr/core/utils/resources/values_manager.dart';
 import '../functions/buildRotateFloatingActionButtonBuilder.dart';
 import 'button_widget.dart';
 import 'floating_action_button_widget.dart';
@@ -31,19 +30,14 @@ class ExpandableFabButtonWidget extends StatelessWidget {
           text: StringsManager.chat,
           actionButton: FloatingActionButtonWidget(
             onPressed: () {},
+            icon: AssetsManager.chatIcon,
           ),
         ),
         ButtonWidget(
           text: StringsManager.showAR,
           actionButton: FloatingActionButtonWidget(
             onPressed: () {},
-            icon: Center(
-              child: SvgPicture.asset(
-                AssetsManager.arIcon,
-                width: AppSize.s40,
-                height: AppSize.s40,
-              ),
-            ),
+            icon: AssetsManager.arIcon,
           ),
         ),
       ],

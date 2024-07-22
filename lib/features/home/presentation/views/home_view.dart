@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/utils/resources/assets_manager.dart';
 import '../../../../core/utils/widgets/floating_action_button_widget.dart';
 import '../widgets/home_view_body_widget.dart';
 
@@ -7,12 +8,14 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Scaffold(
-        body: HomeViewBodyWidget(),
-        floatingActionButton: FloatingActionButtonWidget(),
+        body: const HomeViewBodyWidget(),
+        floatingActionButton: FloatingActionButtonWidget(
+          onPressed: () {},
+          icon: AssetsManager.chatIcon,
+        ),
       ),
     );
   }
 }
-

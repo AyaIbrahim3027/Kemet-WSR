@@ -14,10 +14,10 @@ class DetailsViewBodyWidget extends StatelessWidget {
       child: Center(
         child: FittedBox(
           child: SizedBox(
-            height: MediaQuery.of(context).size.height * 0.3,
-            child: const VideoPlayerWidget(
-              videoUrl:
-                  'https://github.com/AyaIbrahim3027/ANMproject/raw/ee1c709b94000f51a47e14c6097acf8ded67711c/VR%20sample.mp4',
+            width: MediaQuery.of(context).size.width * 0.86,
+            // height: MediaQuery.of(context).size.height * 0.3,
+            child: VideoPlayerWidget(
+              videoUrl: statueModel.ai,
             ),
           ),
         ),

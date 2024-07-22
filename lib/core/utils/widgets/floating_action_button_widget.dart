@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_svg/svg.dart';
 import '../resources/color_manager.dart';
+import '../resources/values_manager.dart';
 
 class FloatingActionButtonWidget extends StatelessWidget {
   const FloatingActionButtonWidget({
     super.key,
     this.onPressed,
-    this.icon,
+    required this.icon,
   });
   final void Function()? onPressed;
-  final Widget? icon;
+  final String icon;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,13 @@ class FloatingActionButtonWidget extends StatelessWidget {
       onPressed: onPressed,
       backgroundColor: ColorManager.white,
       shape: const CircleBorder(),
-      child: icon ?? const Icon(FontAwesomeIcons.commentDots),
+      child: Center(
+        child: SvgPicture.asset(
+          icon,
+          width: AppSize.s40,
+          height: AppSize.s40,
+        ),
+      ),
     );
   }
 }

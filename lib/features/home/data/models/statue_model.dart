@@ -3,16 +3,16 @@ class StatueModel {
   final String epoch;
   final String image;
   final String civilizationName;
-  final String? ar;
-  final String? ai;
+  final String ar;
+  final String ai;
 
   StatueModel({
     required this.name,
     required this.epoch,
     required this.image,
     required this.civilizationName,
-    this.ar,
-    this.ai,
+    required this.ar,
+    required this.ai,
   });
 
   factory StatueModel.fromJson(Map<String, dynamic> json) {
