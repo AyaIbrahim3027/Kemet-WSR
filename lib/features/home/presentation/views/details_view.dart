@@ -14,7 +14,7 @@ class DetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: buildAppBar(text: statueModel.name),
+        appBar: buildAppBar(context: context, text: statueModel.name),
         body: DetailsViewBodyWidget(
           statueModel: statueModel,
         ),

@@ -19,7 +19,7 @@ class VRSectionWidget extends StatelessWidget {
         ),
         Text(
           StringsManager.soon,
-          style: AppStyles.styleSemiBold20(),
+          style: AppStyles.styleSemiBold20(context),
         ),
         const SizedBox(
           height: AppSize.s20,

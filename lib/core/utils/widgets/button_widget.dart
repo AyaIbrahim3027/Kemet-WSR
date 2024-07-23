@@ -19,7 +19,7 @@ class ButtonWidget extends StatelessWidget {
       children: [
         Text(
           text,
-          style: AppStyles.styleMedium14(),
+          style: AppStyles.styleMedium14(context),
         ),
         const SizedBox(width: AppSize.s20),
         actionButton,

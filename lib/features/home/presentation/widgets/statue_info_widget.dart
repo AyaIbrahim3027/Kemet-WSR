@@ -23,7 +23,7 @@ class StatueInfoWidget extends StatelessWidget {
         children: [
           Text(
             statueModel.name,
-            style: AppStyles.styleSemiBold17()
+            style: AppStyles.styleSemiBold17(context)
                 .copyWith(color: ColorManager.background),
             maxLines: 2,
           ),
@@ -37,7 +37,7 @@ class StatueInfoWidget extends StatelessWidget {
               const SizedBox(width: AppSize.s8),
               Text(
                 statueModel.civilizationName,
-                style: AppStyles.styleMedium15()
+                style: AppStyles.styleMedium15(context)
                     .copyWith(color: ColorManager.background),
                 overflow: TextOverflow.ellipsis,
               ),
@@ -53,7 +53,7 @@ class StatueInfoWidget extends StatelessWidget {
               const SizedBox(width: AppSize.s8),
               Text(
                 statueModel.epoch,
-                style: AppStyles.styleMedium15()
+                style: AppStyles.styleMedium15(context)
                     .copyWith(color: ColorManager.background),
               ),
             ],

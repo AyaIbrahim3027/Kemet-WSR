@@ -18,7 +18,7 @@ class WelcomeTextWidget extends StatelessWidget {
           children: [
             Text(
               StringsManager.welcome,
-              style: AppStyles.styleMedium18(),
+              style: AppStyles.styleMedium18(context),
             ),
             const SizedBox(width: AppSize.s10),
             const Icon(
@@ -30,7 +30,7 @@ class WelcomeTextWidget extends StatelessWidget {
         const SizedBox(height: AppSize.s8),
         Text(
           StringsManager.appName,
-          style: AppStyles.styleSemiBold20(),
+          style: AppStyles.styleSemiBold20(context),
         ),
       ],
     );
