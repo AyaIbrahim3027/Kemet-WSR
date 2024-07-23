@@ -47,6 +47,7 @@ dependencies:
   equatable: ^2.0.5
   flutter_expandable_fab: ^2.1.0
   flutter_svg: ^2.0.10+1
+  native_ar_viewer: ^0.0.2
 
 
 dev_dependencies:

@@ -29,8 +29,13 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kDetailsView,
-        builder: (context, state) => DetailsView(
-          statueModel: state.extra as StatueModel,
+        builder: (context, state) => BlocProvider(
+          create: (context) => StatueCubit(
+            StatueService(),
+          )..fetchStatues(),
+          child: DetailsView(
+            statueModel: state.extra as StatueModel,
+          ),
         ),
       ),
     ],

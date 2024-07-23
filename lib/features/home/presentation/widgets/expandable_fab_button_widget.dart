@@ -4,14 +4,18 @@ import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kemetwsr/core/utils/resources/assets_manager.dart';
 import 'package:kemetwsr/core/utils/resources/strings_manager.dart';
-import '../functions/buildRotateFloatingActionButtonBuilder.dart';
-import 'button_widget.dart';
-import 'floating_action_button_widget.dart';
+import 'package:kemetwsr/features/home/data/models/statue_model.dart';
+import '../../../../core/utils/functions/buildRotateFloatingActionButtonBuilder.dart';
+import '../../../../core/utils/widgets/button_widget.dart';
+import '../../../../core/utils/widgets/floating_action_button_widget.dart';
+import '../../../AR/presentation/views/launch_AR.dart';
 
 class ExpandableFabButtonWidget extends StatelessWidget {
   const ExpandableFabButtonWidget({
     super.key,
+    required this.statueModel,
   });
+  final StatueModel statueModel;
 
   @override
   Widget build(BuildContext context) {
@@ -33,12 +37,8 @@ class ExpandableFabButtonWidget extends StatelessWidget {
             icon: AssetsManager.chatIcon,
           ),
         ),
-        ButtonWidget(
-          text: StringsManager.showAR,
-          actionButton: FloatingActionButtonWidget(
-            onPressed: () {},
-            icon: AssetsManager.arIcon,
-          ),
+        LaunchAR(
+          statueModel: statueModel,
         ),
       ],
     );

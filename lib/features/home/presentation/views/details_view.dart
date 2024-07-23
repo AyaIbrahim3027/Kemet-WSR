@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
 import 'package:kemetwsr/features/home/presentation/widgets/details_view_body_widget.dart';
 import '../../../../core/utils/functions/buildAppBar.dart';
-import '../../../../core/utils/widgets/expandable_fab_button_widget.dart';
+import '../widgets/expandable_fab_button_widget.dart';
 import '../../data/models/statue_model.dart';
 
 class DetailsView extends StatelessWidget {
@@ -19,9 +19,10 @@ class DetailsView extends StatelessWidget {
           statueModel: statueModel,
         ),
         floatingActionButtonLocation: ExpandableFab.location,
-        floatingActionButton: const ExpandableFabButtonWidget(),
+        floatingActionButton: ExpandableFabButtonWidget(
+          statueModel: statueModel,
+        ),
       ),
     );
   }
 }
-
