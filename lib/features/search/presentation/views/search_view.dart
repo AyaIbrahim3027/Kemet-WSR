@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
+import 'package:fuzzywuzzy/fuzzywuzzy.dart';
 import 'package:kemetwsr/features/home/data/models/statue_model.dart';
 import '../../../../app/app_router.dart';
 import '../../../../core/utils/resources/color_manager.dart';
@@ -54,10 +55,15 @@ class _SearchViewState extends State<SearchView> {
         isSearch = false;
       });
     } else {
-      List<StatueModel> filteredList = statues.where((statue) {
-        return statue.name.toLowerCase().contains(query.toLowerCase()) ||
-            statue.civilizationName.toLowerCase().contains(query.toLowerCase());
-      }).toList();
+      List<StatueModel> filteredList = [];
+      for (var statue in statues) {
+        final nameRatio = ratio(statue.name.toLowerCase(), query.toLowerCase());
+        final civNameRatio =
+            ratio(statue.civilizationName.toLowerCase(), query.toLowerCase());
+        if (nameRatio > 50 || civNameRatio > 50) {
+          filteredList.add(statue);
+        }
+      }
       setState(() {
         filteredStatue = filteredList;
         isSearch = true;
@@ -100,7 +106,6 @@ class _SearchViewState extends State<SearchView> {
                 child: ListView.builder(
                   shrinkWrap: true,
                   itemCount: filteredStatue.length,
-                  // itemCount: state.statues.length,
                   itemBuilder: (context, index) {
                     final statue = filteredStatue[index];
                     return Padding(

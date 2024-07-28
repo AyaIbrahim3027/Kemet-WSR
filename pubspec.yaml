@@ -48,8 +48,6 @@ dependencies:
   flutter_expandable_fab: ^2.1.0
   flutter_svg: ^2.0.10+1
   native_ar_viewer: ^0.0.2
-  text_search: ^1.0.2
-  spell_check_on_client: ^0.0.8
   fuzzywuzzy: ^1.1.6
 
 
