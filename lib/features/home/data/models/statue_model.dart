@@ -17,12 +17,12 @@ class StatueModel {
 
   factory StatueModel.fromJson(Map<String, dynamic> json) {
     return StatueModel(
-      name: json['name'] as String,
-      epoch: json['epoch'] as String,
-      image: json['image'] as String,
-      civilizationName: json['civilizationName'] as String,
-      ar: json['ar'] as String,
-      ai: json['ai'] as String,
+      name: json['name'] ?? '',
+      epoch: json['epoch'] ?? '',
+      image: json['image'] ?? '',
+      civilizationName: json['civilizationName'] ?? '',
+      ar: json['ar'] ?? '',
+      ai: json['ai'] ?? '',
     );
   }
 

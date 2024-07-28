@@ -9,11 +9,14 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        body: const HomeViewBodyWidget(),
-        floatingActionButton: FloatingActionButtonWidget(
-          onPressed: () {},
-          icon: AssetsManager.chatIcon,
+      child: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: Scaffold(
+          body: const HomeViewBodyWidget(),
+          floatingActionButton: FloatingActionButtonWidget(
+            onPressed: () {},
+            icon: AssetsManager.chatIcon,
+          ),
         ),
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kemetwsr/features/home/presentation/views/details_view.dart';
+import 'package:kemetwsr/features/search/presentation/views/search_view.dart';
 import '../features/home/data/models/statue_model.dart';
 import '../features/home/data/statue_service/statue_service.dart';
 import '../features/home/presentation/manager/statue/statue_cubit.dart';
@@ -11,6 +12,8 @@ abstract class AppRouter {
   static const kSplashView = '/';
   static const kHomeView = '/homeView';
   static const kDetailsView = '/detailsView';
+  static const kSearchView = '/searchView';
+
 
   static final router = GoRouter(
     routes: [
@@ -38,6 +41,12 @@ abstract class AppRouter {
           ),
         ),
       ),
+      GoRoute(
+        path: kSearchView,
+        builder: (context, state) => const SearchView(),
+      ),
     ],
   );
 }
+
+
