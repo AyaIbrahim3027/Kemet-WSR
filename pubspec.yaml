@@ -49,6 +49,10 @@ dependencies:
   flutter_svg: ^2.0.10+1
   native_ar_viewer: ^0.0.2
   fuzzywuzzy: ^1.1.6
+  google_generative_ai: ^0.4.3
+  get_it: ^7.6.7
+  flutter_chat_ui: ^1.6.14
+  loading_animation_widget: ^1.2.1
 
 
 dev_dependencies:
