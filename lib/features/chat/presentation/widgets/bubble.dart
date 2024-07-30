@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
+import 'package:kemetwsr/core/utils/resources/color_manager.dart';
+import 'package:kemetwsr/core/utils/resources/values_manager.dart';
 
 class MessageBubble extends StatelessWidget {
   final types.Message message;
@@ -20,20 +22,20 @@ class MessageBubble extends StatelessWidget {
       final textMessage = message as types.TextMessage;
 
       return Container(
-        padding: const EdgeInsets.all(8),
-        margin: const EdgeInsets.symmetric(vertical: 4),
+        padding: const EdgeInsets.all(AppPadding.p8),
         decoration: BoxDecoration(
           color: message.author.id == 'user'
-              ? const Color.fromARGB(255, 119, 18, 18) // Use theme color
-              : theme.backgroundColor, // Use theme color
-          borderRadius: BorderRadius.circular(8),
+              ? ColorManager.beige // Use theme color // user
+              : ColorManager.black
+                  .withOpacity(AppOpacity.op0_04), // Use theme color
+          borderRadius: BorderRadius.circular(AppSize.s10),
         ),
         child: Text(
           textMessage.text, // Extract the text from the message
           style: theme.sentMessageBodyTextStyle.copyWith(
             // Use theme text style
             color: message.author.id == 'user'
-                ? theme.sentMessageBodyTextStyle.color
+                ? theme.sentMessageBodyTextStyle.color // user
                 : theme.receivedMessageBodyTextStyle.color,
           ),
         ),

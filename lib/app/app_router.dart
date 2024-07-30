@@ -2,9 +2,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kemetwsr/features/chat/presentation/manager/chat/chat_bloc.dart';
-import 'package:kemetwsr/features/chat/presentation/views/home.dart';
+import 'package:kemetwsr/features/chat/presentation/views/chat_page.dart';
 import 'package:kemetwsr/features/home/presentation/views/details_view.dart';
 import 'package:kemetwsr/features/search/presentation/views/search_view.dart';
+import '../features/chat/presentation/views/chat_view.dart';
 import '../features/home/data/models/statue_model.dart';
 import '../features/home/data/statue_service/statue_service.dart';
 import '../features/home/presentation/manager/statue/statue_cubit.dart';
@@ -17,6 +18,7 @@ abstract class AppRouter {
   static const kDetailsView = '/detailsView';
   static const kSearchView = '/searchView';
   static const kChatView = '/chatView';
+  static const kChatPage = '/chatPage';
 
   static final router = GoRouter(
     routes: [
@@ -51,10 +53,31 @@ abstract class AppRouter {
       GoRoute(
         path: kChatView,
         builder: (context, state) {
-          final name = state.extra ; // Assuming the historical figure's name is passed as extra
+          final name = state
+              .extra; // Assuming the historical figure's name is passed as extra
           return BlocProvider(
-            create: (context) => GetIt.instance.get<ChatBloc>(instanceName: '${name}Bloc'),
-            child: const Home(), // Pass any necessary parameters to Home if needed
+            create: (context) =>
+                GetIt.instance.get<ChatBloc>(instanceName: '${name}Bloc'),
+            child:
+                const ChatView(), // Pass any necessary parameters to Home if needed
+          );
+        },
+      ),
+      GoRoute(
+        path: kChatPage,
+        builder: (context, state) {
+          final extra = state.extra as Map<String, dynamic>;
+          final name = extra['name'];
+          final contextName = extra['contextName'];
+          final query = extra['query'];
+          return BlocProvider(
+            create: (context) =>
+                GetIt.instance.get<ChatBloc>(instanceName: '${name}Bloc'),
+            child: ChatPage(
+              contextName: contextName,
+              query: query,
+              characterName: name,
+            ),
           );
         },
       ),
