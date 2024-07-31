@@ -26,30 +26,15 @@ abstract class AppRouter {
         path: kSplashView,
         builder: (context, state) => const SplashView(),
       ),
-      // GoRoute(
-      //   path: kHomeView,
-      //   builder: (context, state) => BlocProvider(
-      //     create: (context) => StatueCubit(
-      //       StatueService(),
-      //     )..fetchStatues(),
-      //     child: const HomeView(),
-      //   ),
-      // ),
-
-
       GoRoute(
-          path: kHomeView,
-          builder: (context, state) {
-            return BlocProvider(
-              create: (context) => StatueCubit(
-                StatueService(),
-              )..fetchStatues(), // Ensure statues are fetched when HomeView is built
-              child: const HomeView(
-              ),
-            );
-            },
-          ),
-
+        path: kHomeView,
+        builder: (context, state) => BlocProvider(
+          create: (context) => StatueCubit(
+            StatueService(),
+          )..fetchStatues(),
+          child: const HomeView(),
+        ),
+      ),
       GoRoute(
         path: kDetailsView,
         builder: (context, state) => BlocProvider(

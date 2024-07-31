@@ -6,11 +6,10 @@ import '../../../../core/utils/resources/data.dart';
 import '../../../home/data/models/statue_model.dart';
 
 class CharacterDialog extends StatelessWidget {
-  final StatueModel? statueModel;
-
+  final List<StatueModel> statues;
   const CharacterDialog({
     super.key,
-    this.statueModel,
+    required this.statues,
   });
 
   @override
@@ -32,17 +31,14 @@ class CharacterDialog extends StatelessWidget {
             Expanded(
               child: ListView(
                 scrollDirection: Axis.horizontal,
-                children: figures.entries.map((entry) {
-                  final name = entry.key;
-                  final data = entry.value;
-                  final contextName = data;
-                  final query =
-                  all_historical_figures[name]?["responses"];
+                children: statues.map((statue) {
+                  final name = statue.name;
+                  final query = all_historical_figures[name]?["responses"];
+                  final contextName = figures[name];
                   return CharacterItemWidget(
-                    name: name,
-                    image: statueModel?.image ?? '',
-                    // statueModel: statueModel,
-                    contextName: contextName,
+                    name: statue.name,
+                    image: statue.image,
+                    contextName: contextName.toString(),
                     query: query,
                   );
                 }).toList(),

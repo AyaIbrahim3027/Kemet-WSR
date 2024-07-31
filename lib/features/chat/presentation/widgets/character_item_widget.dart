@@ -11,14 +11,12 @@ class CharacterItemWidget extends StatelessWidget {
      required this.image,
     required this.contextName,
     required this.query,
-    // this.statueModel,
   });
 
   final String name;
   final String contextName;
   final String image;
   final dynamic query;
-  // final StatueModel? statueModel;
 
   @override
   Widget build(BuildContext context) {
