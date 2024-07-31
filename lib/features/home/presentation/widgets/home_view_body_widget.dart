@@ -7,7 +7,9 @@ import 'package:kemetwsr/features/search/presentation/views/search_view.dart';
 import '../../../../core/utils/resources/values_manager.dart';
 
 class HomeViewBodyWidget extends StatelessWidget {
-  const HomeViewBodyWidget({super.key});
+  const HomeViewBodyWidget({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
