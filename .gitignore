@@ -45,3 +45,4 @@ app.*.map.json
 /android/app/google-services.json
 /ios/firebase_app_id_file.json
 /lib/core/utils/resources/api_key.dart
+/lib/core/utils/resources/data.dart
