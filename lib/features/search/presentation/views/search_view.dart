@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:fuzzywuzzy/fuzzywuzzy.dart';
+import 'package:kemetwsr/core/utils/resources/assets_manager.dart';
 import 'package:kemetwsr/features/home/data/models/statue_model.dart';
 import '../../../../app/app_router.dart';
 import '../../../../core/utils/resources/color_manager.dart';
@@ -76,9 +77,13 @@ class _SearchViewState extends State<SearchView> {
     return Column(
       children: [
         CustomTextFormFieldWidget(
-          prefixIcon: const Icon(
-            FontAwesomeIcons.magnifyingGlass,
-            size: AppSize.s20,
+          prefixIcon: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: SvgPicture.asset(
+              AssetsManager.searchIcon,
+              height: MediaQuery.of(context).size.height * 0.038,
+              width: MediaQuery.of(context).size.width * 0.038,
+            ),
           ),
           hintText: StringsManager.searchHintText,
           fillColor: ColorManager.beige.withOpacity(AppOpacity.op0_4),
