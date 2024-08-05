@@ -15,6 +15,7 @@ class CustomTextFormFieldWidget extends StatelessWidget {
     this.prefixIcon,
     this.onChanged,
     this.borderRadius,
+    this.suffixIcon, this.onTap,
   });
 
   final Color? textColor;
@@ -23,23 +24,27 @@ class CustomTextFormFieldWidget extends StatelessWidget {
   final TextEditingController? controller;
   final Color? fillColor;
   final Widget? prefixIcon;
+  final Widget? suffixIcon;
   final ValueChanged<String>? onChanged;
   final BorderRadius? borderRadius;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onTap: onTap,
       controller: controller,
       onChanged: onChanged,
       decoration: InputDecoration(
         filled: true,
         fillColor: fillColor,
         prefixIcon: prefixIcon,
+        suffixIcon: suffixIcon,
         hintText: hintText,
         hintStyle: textStyle ??
             AppStyles.styleMedium14(context).copyWith(
-              color: textColor ??
-                  ColorManager.black.withOpacity(AppOpacity.op0_7),
+              color:
+                  textColor ?? ColorManager.black.withOpacity(AppOpacity.op0_7),
             ),
         border: OutlineInputBorder(
           borderSide: BorderSide.none,

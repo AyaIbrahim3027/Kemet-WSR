@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kemetwsr/core/utils/resources/color_manager.dart';
 import '../../../../core/utils/resources/app_style.dart';
 import '../../../../core/utils/resources/strings_manager.dart';
 import '../../../../core/utils/resources/values_manager.dart';
@@ -19,7 +20,9 @@ class VRSectionWidget extends StatelessWidget {
         ),
         Text(
           StringsManager.soon,
-          style: AppStyles.styleSemiBold20(context),
+          style: AppStyles.styleSemiBold20(context).copyWith(
+            color: ColorManager.black.withOpacity(AppOpacity.op0_8),
+          ),
         ),
         const SizedBox(
           height: AppSize.s20,
