@@ -39,6 +39,7 @@ class AppSize {
 class AppOpacity {
   static const double op0_04 = 0.04;
   static const double op0_1 = 0.1;
+  static const double op0_2 = 0.2;
   static const double op0_3 = 0.3;
   static const double op0_4 = 0.4;
   static const double op0_5 = 0.5;

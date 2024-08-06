@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
-import 'package:fuzzywuzzy/fuzzywuzzy.dart';
-import 'package:kemetwsr/core/utils/resources/app_style.dart';
-import 'package:kemetwsr/features/home/data/models/statue_model.dart';
+import 'package:kemetwsr/core/utils/resources/color_manager.dart';
+import 'package:kemetwsr/core/utils/resources/strings_manager.dart';
+import 'package:kemetwsr/features/search/presentation/widgets/search_icon_widget.dart';
+import 'package:overlay_search/overlay_search.dart';
 import '../../../../app/app_router.dart';
-import '../../../../core/utils/resources/color_manager.dart';
-import '../../../../core/utils/resources/strings_manager.dart';
+import '../../../../core/utils/resources/app_style.dart';
 import '../../../../core/utils/resources/values_manager.dart';
+import '../../../home/data/models/statue_model.dart';
 import '../../../home/data/statue_service/statue_service.dart';
-import '../widgets/custom_text_form_field_widget.dart';
-import '../widgets/search_icon_widget.dart';
 
 class SearchView extends StatefulWidget {
-  const SearchView({super.key});
-
+  const SearchView({
+    super.key,
+  });
   @override
   State<SearchView> createState() => _SearchViewState();
 }
 
 class _SearchViewState extends State<SearchView> {
+  late OverlaySearchController overlayController;
   late List<StatueModel> statues;
   late TextEditingController searchController;
   List<StatueModel> filteredStatue = [];
@@ -29,6 +30,7 @@ class _SearchViewState extends State<SearchView> {
   void initState() {
     super.initState();
     searchController = TextEditingController();
+    overlayController = OverlaySearchController();
     fetchStatues();
   }
 
@@ -47,6 +49,7 @@ class _SearchViewState extends State<SearchView> {
   @override
   void dispose() {
     searchController.dispose();
+    overlayController.dispose();
     super.dispose();
   }
 
@@ -59,12 +62,7 @@ class _SearchViewState extends State<SearchView> {
     } else {
       List<StatueModel> filteredList = [];
       for (var statue in statues) {
-        final nameRatio = ratio(statue.name.toLowerCase(), query.toLowerCase());
-        final civNameRatio =
-            ratio(statue.civilizationName.toLowerCase(), query.toLowerCase());
-        if (nameRatio > 35 || civNameRatio > 35) {
-          filteredList.add(statue);
-        }
+        filteredList.add(statue);
       }
       setState(() {
         filteredStatue = filteredList;
@@ -73,82 +71,55 @@ class _SearchViewState extends State<SearchView> {
     }
   }
 
-  void clearSearch() {
-    setState(() {
-      searchController.clear();
-      filteredStatue = statues;
-      isSearch = false;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CustomTextFormFieldWidget(
-          prefixIcon: const SearchIconWidget(),
-          suffixIcon: isSearch
-              ? IconButton(
-                  onPressed: clearSearch,
-                  icon: Icon(
-                    FontAwesomeIcons.xmark,
-                    size: AppSize.s20,
-                    color: ColorManager.black.withOpacity(AppOpacity.op0_7),
-                  ))
-              : null,
-          hintText: StringsManager.searchHintText,
-          fillColor: ColorManager.beige.withOpacity(AppOpacity.op0_4),
-          controller: searchController,
-          borderRadius: isSearch
-              ? const BorderRadius.vertical(top: Radius.circular(10))
-              : BorderRadius.circular(10),
-          onChanged: filterStatues,
-        ),
-        isSearch
-            ? Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: ColorManager.beige.withOpacity(AppOpacity.op0_1),
-                  borderRadius: const BorderRadius.vertical(
-                      bottom: Radius.circular(AppSize.s10)),
-                  border: Border(
-                    top: BorderSide(
-                      color: ColorManager.black.withOpacity(AppOpacity.op0_3),
-                      width: 1.0,
-                    ),
-                  ),
+    return SearchWithList(
+      overlaySearchController: overlayController,
+      searchBackgroundColor: ColorManager.beige.withOpacity(AppOpacity.op0_2),
+      list: filteredStatue
+          .map((statue) => OverlayItemModel(
+                title: statue.name,
+                content: statue.epoch,
+                image: statue.image,
+                leadingWidget: Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                      color: ColorManager.black,
+                      borderRadius: BorderRadius.circular(AppSize.s10),
+                      image:
+                          DecorationImage(image: NetworkImage(statue.image))),
                 ),
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: filteredStatue.length,
-                  itemBuilder: (context, index) {
-                    final statue = filteredStatue[index];
-                    return Padding(
-                      padding: const EdgeInsets.only(bottom: AppPadding.p8),
-                      child: ListTile(
-                        leading: ClipRRect(
-                            borderRadius: BorderRadius.circular(AppSize.s10),
-                            child: Image.network(statue.image)),
-                        title: Text(
-                          statue.name,
-                          style: AppStyles.styleMedium16(context),
-                        ),
-                        subtitle: Text(statue.epoch),
-                        onTap: () {
-                          GoRouter.of(context)
-                              .push(AppRouter.kDetailsView, extra: statue);
-                          setState(() {
-                            searchController.clear();
-                            isSearch = false;
-                          });
-                        },
-                      ),
-                    );
-                  },
-                ),
-              )
-            : Container(),
-      ],
+              ))
+          .toList(),
+      overlayBackgroundColor: ColorManager.lightBeige,
+      hint: StringsManager.searchHintText,
+      hintStyle: AppStyles.styleMedium14(context).copyWith(
+        color: ColorManager.black.withOpacity(AppOpacity.op0_7),
+      ),
+      suffixAction: () {
+        overlayController.hideOverlay();
+        overlayController.clearSearchQuery();
+      },
+      prefixIcon: const SearchIconWidget(),
+      suffixIcon: FontAwesomeIcons.xmark,
+      iconColor: ColorManager.black.withOpacity(AppOpacity.op0_7),
+      overlayHeight: MediaQuery.of(context).size.height * 0.43,
+      onItemSelected: (item) {
+        final selectedStatue = filteredStatue.firstWhere(
+          (statue) => statue.name == item.title,
+        );
+        GoRouter.of(context)
+            .push(AppRouter.kDetailsView, extra: selectedStatue);
+      },
+      enableDebounce: true,
+      debounceDuration: const Duration(milliseconds: 500),
+      onChanged: (value) {
+        filterStatues(value);
+      },
+      onTap: () {
+        fetchStatues();
+      },
     );
   }
 }
