@@ -33,7 +33,7 @@ class CharacterItemWidget extends StatelessWidget {
         );
       },
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        padding: const EdgeInsets.symmetric(horizontal: AppPadding.p12),
         child: Column(
           children: [
             CircleAvatar(

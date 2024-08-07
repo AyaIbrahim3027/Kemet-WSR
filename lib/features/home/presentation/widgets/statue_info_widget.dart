@@ -16,7 +16,7 @@ class StatueInfoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: AppPadding.p20),
+      padding: const EdgeInsets.symmetric(horizontal: AppPadding.p16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -38,7 +38,7 @@ class StatueInfoWidget extends StatelessWidget {
               const SizedBox(width: AppSize.s8),
               Text(
                 statueModel.civilizationName,
-                style: AppStyles.styleMedium15(context)
+                style: AppStyles.styleMedium16(context)
                     .copyWith(color: ColorManager.lightBeige),
                 overflow: TextOverflow.ellipsis,
               ),
@@ -55,7 +55,7 @@ class StatueInfoWidget extends StatelessWidget {
               const SizedBox(width: AppSize.s8),
               Text(
                 statueModel.epoch,
-                style: AppStyles.styleMedium15(context)
+                style: AppStyles.styleMedium16(context)
                     .copyWith(color: ColorManager.lightBeige),
               ),
             ],

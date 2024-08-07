@@ -97,6 +97,9 @@ class _SearchViewState extends State<SearchView> {
       hintStyle: AppStyles.styleMedium14(context).copyWith(
         color: ColorManager.black.withOpacity(AppOpacity.op0_6),
       ),
+      titleStyle: AppStyles.styleRegular17(context),
+      contentStyle: AppStyles.styleRegular15(context)
+          .copyWith(color: ColorManager.black.withOpacity(AppOpacity.op0_8)),
       suffixAction: () {
         overlayController.hideOverlay();
         overlayController.clearSearchQuery();

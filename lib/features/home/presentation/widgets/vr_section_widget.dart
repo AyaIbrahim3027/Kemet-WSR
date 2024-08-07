@@ -20,7 +20,7 @@ class VRSectionWidget extends StatelessWidget {
         ),
         Text(
           StringsManager.soon,
-          style: AppStyles.styleSemiBold20(context).copyWith(
+          style: AppStyles.styleSemiBold23(context).copyWith(
             color: ColorManager.brown,
           ),
         ),

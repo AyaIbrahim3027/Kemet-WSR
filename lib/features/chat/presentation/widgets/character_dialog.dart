@@ -22,7 +22,7 @@ class CharacterDialog extends StatelessWidget {
       ),
       child: Container(
         padding: const EdgeInsets.all(AppPadding.p16),
-        height: MediaQuery.of(context).size.height * 0.21,
+        height: MediaQuery.of(context).size.height * 0.23,
         child: Column(
           children: [
             Text(

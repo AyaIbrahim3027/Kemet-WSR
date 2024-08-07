@@ -20,7 +20,7 @@ class WelcomeTextWidget extends StatelessWidget {
           children: [
             Text(
               StringsManager.welcome,
-              style: AppStyles.styleSemiBold20(context).copyWith(
+              style: AppStyles.styleSemiBold23(context).copyWith(
                 color: ColorManager.brown,
               ),
             ),

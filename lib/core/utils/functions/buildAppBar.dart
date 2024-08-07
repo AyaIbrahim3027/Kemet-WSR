@@ -9,7 +9,7 @@ AppBar buildAppBar({required String text , required BuildContext context}) {
     backgroundColor: Colors.transparent,
     title: Text(
       text,
-      style: AppStyles.styleSemiBold20(context).copyWith(
+      style: AppStyles.styleSemiBold22(context).copyWith(
         color: ColorManager.black.withOpacity(AppOpacity.op0_8),
       ),
     ),

@@ -20,7 +20,7 @@ class ButtonWidget extends StatelessWidget {
       children: [
         Text(
           text,
-          style: AppStyles.styleMedium15(context).copyWith(
+          style: AppStyles.styleSemiBold17(context).copyWith(
             color: ColorManager.black.withOpacity(AppOpacity.op0_8),
           ),
         ),
