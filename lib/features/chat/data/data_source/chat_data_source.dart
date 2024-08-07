@@ -1,5 +1,4 @@
 import 'package:google_generative_ai/google_generative_ai.dart';
-
 import '../../../../core/utils/resources/api_key.dart';
 import '../models/chat_model.dart';
 
@@ -37,8 +36,7 @@ class ChatDataSource {
 
       return ChatModel(response: responseText.text);
     } catch (e) {
-      print('Error in getResponse: $e');
-      rethrow;
+      throw Exception('Error in getResponse: $e');
     }
   }
 }

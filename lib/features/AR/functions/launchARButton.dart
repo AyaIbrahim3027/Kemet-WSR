@@ -1,19 +1,22 @@
+import 'package:flutter/cupertino.dart';
 import 'package:native_ar_viewer/native_ar_viewer.dart';
 import 'dart:io' as io;
+import '../../../core/utils/functions/handleMessages.dart';
 
 final model = io.Platform.isAndroid;
 String documentDirectoryPath = "";
 
-launchARButton({required dynamic arUrl}) async {
+launchARButton(BuildContext context, {required dynamic arUrl}) async {
   try {
     if (model) {
       await NativeArViewer.launchAR(arUrl);
     } else if (io.Platform.isIOS) {
       await NativeArViewer.launchAR("$documentDirectoryPath/Astronaut.usdz");
     } else {
-      print('not supported');
+      handleUnsupportedFeature(
+          context, 'This feature is not supported on your device.');
     }
   } catch (e) {
-    print("Error launching AR: $e");
+    throw Exception('Error launching AR: $e');
   }
 }

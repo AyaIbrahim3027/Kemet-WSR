@@ -22,7 +22,7 @@ class LaunchAR extends StatelessWidget {
         return ButtonWidget(
           text: StringsManager.showAR,
           actionButton: FloatingActionButtonWidget(
-            onPressed: () => launchARButton(arUrl: statueModel!.ar),
+            onPressed: () => launchARButton(context, arUrl: statueModel!.ar),
             icon: AssetsManager.arIcon,
           ),
         );
