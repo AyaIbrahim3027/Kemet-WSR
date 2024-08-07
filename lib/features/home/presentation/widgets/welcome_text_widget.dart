@@ -21,7 +21,7 @@ class WelcomeTextWidget extends StatelessWidget {
             Text(
               StringsManager.welcome,
               style: AppStyles.styleSemiBold20(context).copyWith(
-                color: ColorManager.black.withOpacity(AppOpacity.op0_8),
+                color: ColorManager.brown,
               ),
             ),
             const SizedBox(width: AppSize.s10),
@@ -30,6 +30,10 @@ class WelcomeTextWidget extends StatelessWidget {
               child: SvgPicture.asset(
                 AssetsManager.welcomeIcon,
                 height: MediaQuery.of(context).size.height * 0.035,
+                colorFilter: const ColorFilter.mode(
+                  ColorManager.brown, // The color you want to apply
+                  BlendMode.srcIn, // Blend mode to apply the color
+                ),
               ),
             ),
           ],

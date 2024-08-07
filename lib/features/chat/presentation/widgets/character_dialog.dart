@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kemetwsr/core/utils/resources/app_style.dart';
+import 'package:kemetwsr/core/utils/resources/color_manager.dart';
+import 'package:kemetwsr/core/utils/resources/strings_manager.dart';
 import 'package:kemetwsr/core/utils/resources/values_manager.dart';
 import 'package:kemetwsr/features/chat/presentation/widgets/character_item_widget.dart';
 import '../../../../core/utils/resources/data.dart';
@@ -24,8 +26,10 @@ class CharacterDialog extends StatelessWidget {
         child: Column(
           children: [
             Text(
-              'Select a Character',
-              style: AppStyles.styleSemiBold20(context),
+              StringsManager.chatFigure,
+              style: AppStyles.styleSemiBold20(context).copyWith(
+                color: ColorManager.brown,
+              ),
             ),
             const SizedBox(height: AppSize.s20),
             Expanded(

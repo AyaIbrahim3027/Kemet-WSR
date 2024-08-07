@@ -2,6 +2,8 @@ import 'package:flick_video_player/flick_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
+import '../resources/values_manager.dart';
+
 class VideoPlayerWidget extends StatefulWidget {
   const VideoPlayerWidget({super.key, required this.videoUrl});
 
@@ -31,8 +33,12 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return FlickVideoPlayer(
-      flickManager: flickManager,
+    return ClipRRect(
+      borderRadius:
+          BorderRadius.circular(AppSize.s10), // Adjust the radius as needed
+      child: FlickVideoPlayer(
+        flickManager: flickManager,
+      ),
     );
   }
 }

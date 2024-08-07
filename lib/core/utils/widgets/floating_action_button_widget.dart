@@ -16,11 +16,15 @@ class FloatingActionButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       onPressed: onPressed,
-      backgroundColor: ColorManager.white,
+      backgroundColor: ColorManager.lightBeige,
       shape: const CircleBorder(),
       child: Center(
         child: SvgPicture.asset(
           icon,
+          colorFilter: const ColorFilter.mode(
+            ColorManager.brown,
+            BlendMode.srcIn,
+          ),
           width: AppSize.s40,
           height: AppSize.s40,
         ),

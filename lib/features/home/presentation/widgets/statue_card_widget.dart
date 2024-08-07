@@ -25,7 +25,24 @@ class StatueCardWidget extends StatelessWidget {
         alignment: Alignment.bottomCenter,
         children: [
           Container(
-            height: MediaQuery.of(context).size.height * 0.15,
+            height: MediaQuery.of(context).size.height * 0.5,
+            decoration: BoxDecoration(
+              color: ColorManager.black.withOpacity(AppOpacity.op0_02),
+              borderRadius: BorderRadius.circular(AppSize.s10),
+            ),
+            child: Transform.translate(
+              offset: const Offset(0, -25),
+              child: Padding(
+                padding: const EdgeInsets.all(AppPadding.p16),
+                child: Image.network(
+                  statueModel.image,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
+          Container(
+            height: MediaQuery.of(context).size.height * 0.14,
             decoration: const BoxDecoration(
               color: ColorManager.beige,
               borderRadius: BorderRadius.vertical(
@@ -40,23 +57,6 @@ class StatueCardWidget extends StatelessWidget {
               ],
             ),
             child: StatueInfoWidget(statueModel: statueModel),
-          ),
-          Container(
-            height: MediaQuery.of(context).size.height * 0.5,
-            decoration: BoxDecoration(
-              color: ColorManager.black.withOpacity(0.02),
-              borderRadius: BorderRadius.circular(AppSize.s10),
-            ),
-            child: Transform.translate(
-              offset: const Offset(0, -25),
-              child: Padding(
-                padding: const EdgeInsets.all(AppPadding.p16),
-                child: Image.network(
-                  statueModel.image,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
           ),
         ],
       ),

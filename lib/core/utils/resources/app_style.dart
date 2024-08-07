@@ -40,7 +40,8 @@ abstract class AppStyles {
   static TextStyle styleMedium18(BuildContext context) =>
       styleMedium(context, 18);
   static TextStyle styleBold18(BuildContext context) => styleBold(context, 18);
-  static TextStyle styleBold19(BuildContext context) => styleBold(context, 19);
+  static TextStyle styleSemiBold19(BuildContext context) =>
+      styleSemiBold(context, 19);
   static TextStyle styleSemiBold20(BuildContext context) =>
       styleSemiBold(context, 20);
   static TextStyle styleBold22(BuildContext context) => styleBold(context, 22);

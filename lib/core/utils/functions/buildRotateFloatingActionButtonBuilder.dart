@@ -8,6 +8,7 @@ RotateFloatingActionButtonBuilder buildRotateFloatingActionButtonBuilder(
     child: Icon(
       icon,
       size: 20,
+      color: ColorManager.lightBeige,
     ),
     foregroundColor: ColorManager.background,
     backgroundColor: ColorManager.beige.withOpacity(0.5),

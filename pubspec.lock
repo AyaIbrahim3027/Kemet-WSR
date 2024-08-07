@@ -821,6 +821,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
+  video_360:
+    dependency: "direct main"
+    description:
+      name: video_360
+      sha256: a32863d2b47a6cf86b9afaf00eaae59c8b609a850945173bdabc8a9b1af35d19
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.9"
   video_player:
     dependency: "direct main"
     description:
@@ -877,6 +885,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "14.2.1"
+  vr_player:
+    dependency: "direct main"
+    description:
+      name: vr_player
+      sha256: "49590c7e9b3db64a66f95ec0e902a99a291712cca270f78c742f406c8dc091a3"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.2"
   wakelock_plus:
     dependency: transitive
     description:

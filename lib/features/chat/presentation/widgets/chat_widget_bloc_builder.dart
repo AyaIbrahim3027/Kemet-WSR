@@ -25,8 +25,8 @@ class ChatWidgetBlocBuilder extends StatelessWidget {
         const chatTheme = DefaultChatTheme(
           backgroundColor: ColorManager.background,
           inputBackgroundColor: ColorManager.beige,
-          sendButtonIcon:
-              Icon(Icons.send, color: Color.fromARGB(255, 243, 242, 242)),
+          inputTextColor: ColorManager.lightBeige,
+          sendButtonIcon: Icon(Icons.send, color: ColorManager.lightBeige),
         );
 
         return Chat(

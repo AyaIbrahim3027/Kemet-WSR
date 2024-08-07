@@ -45,7 +45,9 @@ class _SplashViewBodyWidgetState extends State<SplashViewBodyWidget> {
           left: width * 0.43,
           child: Text(
             StringsManager.appName.toUpperCase(),
-            style: AppStyles.styleSemiBold23(context),
+            style: AppStyles.styleSemiBold23(context).copyWith(
+              color: ColorManager.brown,
+            ),
           ),
         )
       ],

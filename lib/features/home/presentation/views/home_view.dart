@@ -26,22 +26,25 @@ class HomeView extends StatelessWidget {
             }
           },
         ),
-        floatingActionButton: FloatingActionButtonWidget(
-          onPressed: () {
-            final statueCubit = context.read<StatueCubit>();
-            final currentState = statueCubit.state;
-            if (currentState is StatueSuccess &&
-                currentState.statues.isNotEmpty) {
-              showCharacterDialog(
-                  context, currentState.statues); // Pass all statues here
-            } else {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                    content: Text('No statues available or data not loaded')),
-              );
-            }
-          },
-          icon: AssetsManager.chatIcon,
+        floatingActionButton: Transform.translate(
+          offset: const Offset(0, -30),
+          child: FloatingActionButtonWidget(
+            onPressed: () {
+              final statueCubit = context.read<StatueCubit>();
+              final currentState = statueCubit.state;
+              if (currentState is StatueSuccess &&
+                  currentState.statues.isNotEmpty) {
+                showCharacterDialog(
+                    context, currentState.statues); // Pass all statues here
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                      content: Text('No statues available or data not loaded')),
+                );
+              }
+            },
+            icon: AssetsManager.chatIcon,
+          ),
         ),
       ),
     );

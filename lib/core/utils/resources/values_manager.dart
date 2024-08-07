@@ -21,6 +21,7 @@ class AppSize {
   static const int s2 = 2;
   static const double s4 = 4.0;
   static const double s5 = 5.0;
+  static const double s6 = 6.0;
   static const double s8 = 8.0;
   static const double s10 = 10.0;
   static const double s12 = 12.0;
@@ -37,6 +38,7 @@ class AppSize {
 }
 
 class AppOpacity {
+  static const double op0_02 = 0.02;
   static const double op0_04 = 0.04;
   static const double op0_1 = 0.1;
   static const double op0_2 = 0.2;

@@ -85,7 +85,7 @@ class _SearchViewState extends State<SearchView> {
                   width: 50,
                   height: 50,
                   decoration: BoxDecoration(
-                      color: ColorManager.black,
+                      color: ColorManager.black.withOpacity(0.02),
                       borderRadius: BorderRadius.circular(AppSize.s10),
                       image:
                           DecorationImage(image: NetworkImage(statue.image))),
@@ -95,7 +95,7 @@ class _SearchViewState extends State<SearchView> {
       overlayBackgroundColor: ColorManager.lightBeige,
       hint: StringsManager.searchHintText,
       hintStyle: AppStyles.styleMedium14(context).copyWith(
-        color: ColorManager.black.withOpacity(AppOpacity.op0_7),
+        color: ColorManager.black.withOpacity(AppOpacity.op0_6),
       ),
       suffixAction: () {
         overlayController.hideOverlay();
@@ -103,7 +103,7 @@ class _SearchViewState extends State<SearchView> {
       },
       prefixIcon: const SearchIconWidget(),
       suffixIcon: FontAwesomeIcons.xmark,
-      iconColor: ColorManager.black.withOpacity(AppOpacity.op0_7),
+      iconColor: ColorManager.brown,
       overlayHeight: MediaQuery.of(context).size.height * 0.43,
       onItemSelected: (item) {
         final selectedStatue = filteredStatue.firstWhere(

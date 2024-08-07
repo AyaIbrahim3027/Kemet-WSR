@@ -35,8 +35,8 @@ class MessageBubble extends StatelessWidget {
           style: theme.sentMessageBodyTextStyle.copyWith(
             // Use theme text style
             color: message.author.id == 'user'
-                ? theme.sentMessageBodyTextStyle.color // user
-                : theme.receivedMessageBodyTextStyle.color,
+                ? ColorManager.lightBeige // user
+                : ColorManager.black,
           ),
         ),
       );
