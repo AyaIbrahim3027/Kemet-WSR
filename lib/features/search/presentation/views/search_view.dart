@@ -42,16 +42,10 @@ class _SearchViewState extends State<SearchView> {
         filteredStatue = statues;
       });
     } catch (e) {
-      setState(() {});
-      throw Exception('Failed to fetch statues: $e');
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Failed to fetch statues: $e')),
+      );
     }
-  }
-
-  @override
-  void dispose() {
-    searchController.dispose();
-    overlayController.dispose();
-    super.dispose();
   }
 
   void filterStatues(String query) {
@@ -61,18 +55,22 @@ class _SearchViewState extends State<SearchView> {
         isSearch = false;
       });
     } else {
-      List<StatueModel> filteredList = [];
-      for (var statue in statues) {
+      final filteredList = statues.where((statue) {
         final nameRatio = ratio(statue.name.toLowerCase(), query.toLowerCase());
-        if (nameRatio > 10) {
-          filteredList.add(statue);
-        }
-      }
+        return nameRatio > 10;
+      }).toList();
       setState(() {
         filteredStatue = filteredList;
         isSearch = true;
       });
     }
+  }
+
+  @override
+  void dispose() {
+    searchController.dispose();
+    overlayController.dispose();
+    super.dispose();
   }
 
   @override
@@ -86,13 +84,14 @@ class _SearchViewState extends State<SearchView> {
                 content: statue.epoch,
                 image: statue.image,
                 leadingWidget: Container(
-                  width: 50,
-                  height: 50,
+                  width: AppSize.s50,
+                  height: AppSize.s50,
                   decoration: BoxDecoration(
-                      color: ColorManager.black.withOpacity(0.02),
+                      color: ColorManager.black.withOpacity(AppOpacity.op0_02),
                       borderRadius: BorderRadius.circular(AppSize.s10),
-                      image:
-                          DecorationImage(image: NetworkImage(statue.image))),
+                      image: DecorationImage(
+                        image: NetworkImage(statue.image),
+                      )),
                 ),
               ))
           .toList(),
