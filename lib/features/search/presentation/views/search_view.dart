@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:fuzzywuzzy/fuzzywuzzy.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kemetwsr/core/utils/resources/color_manager.dart';
 import 'package:kemetwsr/core/utils/resources/strings_manager.dart';
@@ -42,7 +43,7 @@ class _SearchViewState extends State<SearchView> {
       });
     } catch (e) {
       setState(() {});
-      print('Failed to fetch statues: $e');
+      throw Exception('Failed to fetch statues: $e');
     }
   }
 
@@ -62,7 +63,10 @@ class _SearchViewState extends State<SearchView> {
     } else {
       List<StatueModel> filteredList = [];
       for (var statue in statues) {
-        filteredList.add(statue);
+        final nameRatio = ratio(statue.name.toLowerCase(), query.toLowerCase());
+        if (nameRatio > 10) {
+          filteredList.add(statue);
+        }
       }
       setState(() {
         filteredStatue = filteredList;

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/utils/resources/assets_manager.dart';
 import '../../../../core/utils/widgets/floating_action_button_widget.dart';
+import '../../../../core/utils/widgets/progress_indicator_widget.dart';
 import '../../../chat/presentation/widgets/showCharacterDialog.dart';
 import '../manager/statue/statue_cubit.dart';
 import '../widgets/home_view_body_widget.dart';
@@ -16,7 +17,7 @@ class HomeView extends StatelessWidget {
         body: BlocBuilder<StatueCubit, StatueState>(
           builder: (context, state) {
             if (state is StatueLoading) {
-              return const Center(child: CircularProgressIndicator());
+              return const Center(child: ProgressIndicatorWidget());
             } else if (state is StatueSuccess) {
               return const HomeViewBodyWidget();
             } else if (state is StatueFailure) {

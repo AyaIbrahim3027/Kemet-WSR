@@ -1,7 +1,6 @@
 import 'package:flick_video_player/flick_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
-
 import '../resources/values_manager.dart';
 
 class VideoPlayerWidget extends StatefulWidget {
@@ -15,6 +14,7 @@ class VideoPlayerWidget extends StatefulWidget {
 
 class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
   late FlickManager flickManager;
+
   @override
   void initState() {
     super.initState();

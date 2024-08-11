@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/utils/functions/buildAppBar.dart';
+import '../../../../core/utils/functions/handleMessages.dart';
 import '../manager/chat/chat_bloc.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
-
 import 'chat_widget_bloc_builder.dart';
 
 class ChatWidget extends StatefulWidget {
@@ -11,10 +11,10 @@ class ChatWidget extends StatefulWidget {
   final String characterName;
 
   @override
-  _ChatWidgetState createState() => _ChatWidgetState();
+  ChatWidgetState createState() => ChatWidgetState();
 }
 
-class _ChatWidgetState extends State<ChatWidget> {
+class ChatWidgetState extends State<ChatWidget> {
   final messageController = TextEditingController();
   final List<types.Message> messages = [];
 
@@ -36,7 +36,7 @@ class _ChatWidgetState extends State<ChatWidget> {
           });
         }
       } else if (state is ChatErrorState) {
-        print('Error: ${state.error}');
+        handleUnsupportedFeature(context, 'Error: ${state.error}');
       }
     });
   }
@@ -62,6 +62,12 @@ class _ChatWidgetState extends State<ChatWidget> {
     final bloc = context.read<ChatBloc>();
     bloc.add(SendMessageEvent(messageText));
     messageController.clear();
+  }
+
+  @override
+  void dispose() {
+    messageController.dispose();
+    super.dispose();
   }
 
   @override
