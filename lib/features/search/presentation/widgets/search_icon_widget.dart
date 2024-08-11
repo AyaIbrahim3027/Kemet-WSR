@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 import '../../../../core/utils/resources/assets_manager.dart';
 import '../../../../core/utils/resources/color_manager.dart';
 

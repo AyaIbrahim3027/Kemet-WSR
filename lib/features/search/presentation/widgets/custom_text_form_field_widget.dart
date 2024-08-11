@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kemetwsr/core/utils/resources/color_manager.dart';
 import 'package:kemetwsr/core/utils/resources/values_manager.dart';
-
 import '../../../../core/utils/resources/app_style.dart';
 
 class CustomTextFormFieldWidget extends StatelessWidget {

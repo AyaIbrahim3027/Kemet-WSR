@@ -66,6 +66,14 @@ class _SearchViewState extends State<SearchView> {
     }
   }
 
+  void onItemSelected(OverlayItemModel item, BuildContext context) {
+    final selectedStatue = filteredStatue.firstWhere(
+          (statue) => statue.name == item.title,
+    );
+    GoRouter.of(context)
+        .push(AppRouter.kDetailsView, extra: selectedStatue);
+  }
+
   @override
   void dispose() {
     searchController.dispose();
@@ -112,11 +120,7 @@ class _SearchViewState extends State<SearchView> {
       iconColor: ColorManager.brown,
       overlayHeight: MediaQuery.of(context).size.height * 0.43,
       onItemSelected: (item) {
-        final selectedStatue = filteredStatue.firstWhere(
-          (statue) => statue.name == item.title,
-        );
-        GoRouter.of(context)
-            .push(AppRouter.kDetailsView, extra: selectedStatue);
+        onItemSelected(item, context);
       },
       enableDebounce: true,
       debounceDuration: const Duration(milliseconds: 500),
@@ -128,4 +132,6 @@ class _SearchViewState extends State<SearchView> {
       },
     );
   }
+
+
 }

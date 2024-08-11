@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../../core/utils/resources/data.dart';
 import 'elevated_button_widget.dart';
 

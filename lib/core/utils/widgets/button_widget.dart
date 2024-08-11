@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kemetwsr/core/utils/resources/app_style.dart';
-
 import '../resources/color_manager.dart';
 import '../resources/values_manager.dart';
 

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kemetwsr/core/utils/resources/strings_manager.dart';
 import 'package:kemetwsr/features/chat/presentation/widgets/chat_view_body_widget.dart';
-
 import '../../../../core/utils/functions/buildAppBar.dart';
 
 class ChatView extends StatelessWidget {
